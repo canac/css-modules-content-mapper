@@ -13,7 +13,7 @@ A [TypeScript](https://www.typescriptlang.org) content mapper for
 - [Usage](#usage)
 - [Editor support](#editor-support)
 - [Options](#options)
-- [CSS variants](#css-variants)
+- [CSS syntax](#css-syntax)
 - [Compatibility](#compatibility)
 - [Security](#security)
 - [License](#license)
@@ -55,7 +55,10 @@ If your code uses undefined CSS module classes, this will show an error.
 
 ## Editor support
 
-In addition to type checking, this content mapper also provides useful editor integrations.
+In addition to type checking, this content mapper also provides useful editor integrations. This
+project uses [`postcss-safe-parser`](https://github.com/postcss/postcss-safe-parser), a
+fault-tolerant CSS parser. That means it will work even if your CSS has syntax errors, for example
+while you are typing.
 
 - _“Go to Definition”_ in a TypeScript file will take you to the matching CSS class or ID.
 - Hovering an imported class in TypeScript will show the CSS definitions.
@@ -67,13 +70,11 @@ In addition to type checking, this content mapper also provides useful editor in
   Style of exported classnames, the keys in your json. For more information, see
   [`postcss-modules`](https://github.com/madyankin/postcss-modules#localsconvention).
 
-## CSS variants
+## CSS syntax
 
-This project uses [`postcss-safe-parser`](https://github.com/postcss/postcss-safe-parser), a
-fault-tolerant CSS parser. That means it will work even if your CSS has syntax errors. Because of
-this, the content mapper can work while your are typing, and possibly even support languages like
-[Sass](https://sass-lang.com) or [Less](https://lesscss.org). However, support is not guaranteed.
-This also means this does **not** check CSS validity.
+This project does **not** check CSS validity. You can use a linter, such as
+[Stylelint](https://stylelint.io), for that. This project also doesn’t support CSS variants such as
+[Sass](https://sass-lang.com) or [Less](https://lesscss.org).
 
 ## Compatibility
 
